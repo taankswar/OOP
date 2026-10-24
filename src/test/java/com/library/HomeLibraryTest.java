@@ -76,7 +76,7 @@ class HomeLibraryTest {
         assertEquals(1, overdue.size());
     }
 
-    // 8. Перестановка (Повышенный уровень)
+    // 8. Перестановка
     @Test
     void testMoveShelf() {
         var oldLoc = copy1.getLocation();
@@ -84,7 +84,7 @@ class HomeLibraryTest {
         assertEquals("Спальня / Стеллаж / Полка 1", library.getLocationOf(copy1));
     }
 
-    // 9. Контракт equals/hashCode для record Book (Рефлексивность и симметричность)
+    // 9. Контракт equals/hashCode для record Book
     @Test
     void testBookEqualsAndHashCodeContract() {
         var author = new Author("Айзек", "Азимов");
@@ -102,7 +102,7 @@ class HomeLibraryTest {
         assertNotEquals(book1, book2);
     }
 
-    // 11. Проверка инкапсуляции (возвращается неизменяемый список)
+    // 11. Проверка инкапсуляции
     @Test
     void testUnmodifiableListReturned() {
         var allCopies = library.getAllCopies();

@@ -48,10 +48,9 @@ public class LibraryDemo {
             // Пытаемся выдать уже выданную книгу
             library.issue(copyToTest, "Читатель В", LocalDate.now(), 14);
         } catch (BookAlreadyIssuedException e) {
-            // Осмысленная обработка (не пустой catch)
             System.out.println("Перехвачено ожидаемое исключение: " + e.getMessage());
         }
-        library.returnBook(copyToTest); // Возвращаем для чистоты
+        library.returnBook(copyToTest);
         System.out.println();
 
         System.out.println("=== 5. Просроченные книги ===");

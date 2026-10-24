@@ -25,7 +25,7 @@ public class HomeLibrary {
 
     /**
      * Поиск экземпляров по заданному критерию.
-     * Использует switch-expression и pattern matching (Java 21).
+     * Использует switch-expression и pattern matching.
      *
      * @param criteria критерий поиска (автор, название или жанр).
      * @return неизменяемый список найденных экземпляров.
@@ -79,7 +79,6 @@ public class HomeLibrary {
                 .toList();
     }
 
-    // --- Повышенный уровень ---
 
     /**
      * Переносит полку (обновляет адреса всех экземпляров, находящихся на ней).
