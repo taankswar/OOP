@@ -29,7 +29,7 @@ public class LibraryDemo {
         System.out.println("Всего экземпляров в библиотеке: " + library.getAllCopies().size() + "\n");
 
         System.out.println("=== 2. Поиск и адресация ===");
-        var foundByAuthor = library.search(new SearchCriteria.ByAuthor(authors.get(0)));
+        var foundByAuthor = library.search(SearchCriteria.BY_AUTHOR, authors.get(0));
         System.out.println("Найдено книг автора " + authors.get(0) + ": " + foundByAuthor.size() + " шт.");
 
         var copyToTest = library.getAllCopies().get(0);

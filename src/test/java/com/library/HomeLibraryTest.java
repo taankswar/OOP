@@ -23,21 +23,21 @@ class HomeLibraryTest {
     // 1. Поиск по автору
     @Test
     void testSearchByAuthor() {
-        var results = library.search(new SearchCriteria.ByAuthor(book1.author()));
+        var results = library.search(SearchCriteria.BY_AUTHOR, book1.author());
         assertEquals(1, results.size());
     }
 
     // 2. Поиск по названию
     @Test
     void testSearchByTitle() {
-        var results = library.search(new SearchCriteria.ByTitle("Основание"));
+        var results = library.search(SearchCriteria.BY_TITLE, "Основание");
         assertEquals(1, results.size());
     }
 
     // 3. Поиск по жанру
     @Test
     void testSearchByGenre() {
-        var results = library.search(new SearchCriteria.ByGenre(Genre.FANTASY));
+        var results = library.search(SearchCriteria.BY_GENRE, Genre.FANTASY);
         assertEquals(1, results.size());
     }
 

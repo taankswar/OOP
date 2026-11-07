@@ -30,16 +30,27 @@ public class HomeLibrary {
      * @param criteria критерий поиска (автор, название или жанр).
      * @return неизменяемый список найденных экземпляров.
      */
-    public List<BookCopy> search(SearchCriteria criteria) {
+    /**
+     * Поиск экземпляров по заданному критерию.
+     * Использует switch-expression по enum.
+     *
+     * @param criteria критерий поиска (BY_AUTHOR, BY_TITLE, BY_GENRE).
+     * @param value значение для поиска (Author, String или Genre).
+     * @return неизменяемый список найденных экземпляров.
+     */
+    public List<BookCopy> search(SearchCriteria criteria, Object value) {
         var result = switch (criteria) {
-            case SearchCriteria.ByAuthor(var author) ->
-                    copies.stream().filter(c -> c.getBook().author().equals(author)).toList();
-            case SearchCriteria.ByTitle(var title) ->
-                    copies.stream().filter(c -> c.getBook().title().equalsIgnoreCase(title)).toList();
-            case SearchCriteria.ByGenre(var genre) ->
-                    copies.stream().filter(c -> c.getBook().genre() == genre).toList();
+            case BY_AUTHOR -> copies.stream()
+                    .filter(c -> c.getBook().author().equals(value))
+                    .toList();
+            case BY_TITLE -> copies.stream()
+                    .filter(c -> c.getBook().title().equalsIgnoreCase((String) value))
+                    .toList();
+            case BY_GENRE -> copies.stream()
+                    .filter(c -> c.getBook().genre() == value)
+                    .toList();
         };
-        return List.copyOf(result); // Инкапсуляция: возвращаем неизменяемую копию
+        return List.copyOf(result);
     }
 
     /**
